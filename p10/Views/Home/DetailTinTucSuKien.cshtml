@@ -1,0 +1,58 @@
+﻿@model Model.EF.Posts
+
+@{
+    ViewBag.Title = "Tin Tức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-view" style="padding: 0">
+    <div class="news-container" id="flex-grow" style="opacity: 1;">
+        <div class="news-element1 flex-grow-ele1" style="flex-grow: 1">
+
+           
+                <div>
+                    <ul class="breadcrumb">
+                        <li><a>Trang chủ</a></li>
+                        <li><a href="/home/TinTucSuKien">Tin Tức Sự Kiện</a></li>
+                        <li style="color:black">@Model.Title</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Tin Tức</h2>
+                    <div class="itemnews-container" id="flex-grow" style="width:100%">
+                        <div>
+                            <h1 style="color:black">@Model.Title</h1>
+                        </div>
+                        <hr>
+                        <div>
+                            <p style="color:black">
+                                @Html.Raw(@Model.Content)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            
+
+
+        <!-- sidebar -->
+        <div class="news-element2 flex-grow-ele2" style="flex-grow: 1; margin-left: 75px">
+            <ul style="padding: 10%">
+                <h2 class="texttitle-sidebar">Đào tạo</h2>
+                <li class="text-sidebar">Khoa Công nghệ thông tin</li>
+                <hr>
+                <li class="text-sidebar">Khoa Kĩ thuật phần mềm</li>
+                <hr>
+                <li class="text-sidebar">Khoa Trí tuệ nhân tạo</li>
+                <hr>
+                <li class="text-sidebar">Khoa Hệ thống thông tin</li>
+                <hr>
+            </ul>
+        </div>
+    </div>
+</div>
+    <script src="~/Assets/TinTucSuKien/js/cbpAnimatedHeader.js"></script>
+    <script src="~/Assets/TinTucSuKien/js/classie.js"></script>
+
+

@@ -1,0 +1,191 @@
+﻿@model Model.EF.Posts
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <!--
+    include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".content-editor").summernote({
+                height: 300,
+                minHeight: null,
+                maxHeight: null,
+                codemirror: {
+                    theme: "monokai"
+                },
+                callbacks: {
+                    onImageUpload: function (files) {
+                        for (var i = 0; i < files.length; i++) {
+
+                            uploadImage(files[i]);
+                        }
+                    }
+                },
+                fontSizes: ['12', '14', '16', '18', '24', '36', '48'],
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontname', ['fontname']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ],
+            });
+        });
+        function uploadImage(file) {
+            var formData = new FormData();
+            formData.append("uploadedFiles", file);
+            $.ajax({
+                data: formData,
+                type: "POST",
+                url: '/Post/UploadFile',
+                cache: false,
+                contentType: false,
+
+                processData: false,
+                success: function (FileUrl) {
+                    alert(FileUrl);
+                    var imgNode = document.createElement('img');
+                    imgNode.src = FileUrl;
+                    $('.content-editor').summernote('insertNode', imgNode);
+                },
+                error: function (data) {
+                    alert(data.responseText);
+                }
+            });
+        }
+
+        function uploadThumb(file) {
+            var formData = new FormData();
+            formData.append("uploadedFiles", file);
+            $.ajax({
+                data: formData,
+                type: "POST",
+                url: '/Post/UploadFile',
+                cache: false,
+                contentType: false,
+
+                processData: false,
+                success: function (FileUrl) {
+                    alert(FileUrl);
+                    $('#valueimage').val(FileUrl);
+                },
+                error: function (data) {
+                    alert(data.responseText);
+                }
+            });
+        }
+
+        document.getElementById('pickupImage').onchange = function (e) {
+            uploadThumb(e.target.files[0])
+        }
+    </script>
+
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Create", "Post", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Posts</h4>
+    <hr />
+    @Html.HiddenFor(model => model.PostsID)
+    @Html.HiddenFor(model => model.Posts_Categorys)
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control uploadhinh" } })
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
+            <input type="file" name="file" class="form-control" id="pickupImage" />
+            <input hidden type="text" name="image" class="form-control" id="valueimage" />
+
+            <br />
+
+            <img hidden id="imageViewing" src="#" width="150" height="100" />
+
+            <br />
+            @Html.HiddenFor(model => model.Image, new { @class = "Image" })
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Sumary, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Sumary, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Sumary, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Published, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Published, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row row-space">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-2">
+                @Html.CheckBoxFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.Content, new { @class = "form-control content-editor" })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.UsersID, "UsersID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UsersID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UsersID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

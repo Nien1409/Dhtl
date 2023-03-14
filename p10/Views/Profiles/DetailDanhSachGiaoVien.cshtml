@@ -1,0 +1,41 @@
+﻿@model Model.EF.Profiles
+
+@{
+    ViewBag.Title = "DetailDanhSachGiaoVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+    <ul class="breadcrumb">
+        <li><a href="/Home">Trang chủ</a></li>
+        <li><a href="/Profiles/DanhSachGiaoVien">Danh Sách Giảng Viên</a></li>
+        <li style="color:black">@Model.name</li>
+    </ul>
+</div>
+
+<div>
+
+    <div style="width: 100%; display: flex">
+        <div style="width: 70%; height: 1000px; padding-left:10% ">
+            <h3 style="padding-left: 20%">@Model.name</h3>
+            <hr />
+            <h4>GIỚI THIỆU</h4>
+            <p>@Model.Intro</p>
+            <h4>CÁC CÔNG TRÌNH KHOA HỌC TIÊU BIỂU</h4>
+            <p>@Model.Publications</p>
+            <h4>LĨNH VỰC NGHIÊN CỨU</h4>
+            <p>@Model.ResearchArea</p>
+            <h4>GIẢNG DẠY</h4>
+            <p>@Model.Teaching</p>
+
+        </div>
+
+        <div style="width:30%; height:auto">
+            <img src="@Model.Image" alt="Avatar" style="width:100%">
+        </div>
+
+    </div>
+    
+</div>
+

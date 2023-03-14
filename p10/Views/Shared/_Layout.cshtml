@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đại học thủy lợi</title>
+    <link rel="stylesheet" href="~/Assets/LayoutIndex/giaodien.css">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/bc029367a7.css" crossorigin="anonymous">
+
+    @* TinTucSuKien *@
+    <link href="~/Assets/TinTucSuKien/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Assets/TinTucSuKien/css/style.css" rel="stylesheet">
+    <link href="~/Assets/TinTucSuKien/css/element.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Assets/TinTucSuKien/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+    <script src="~/Assets/TinTucSuKien/js/jquery-2.1.1.min.js"></script>
+    <script src="~/Assets/TinTucSuKien/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div>
+        <!-- Header -->
+        <div class="header" class="flex-container">
+            <div class="headertrai">
+                <a href="/Home"><img src="https://cse.tlu.edu.vn/cse/assets/images/logo.jpg" alt="" class="logo"></a>
+            </div>
+
+            <div class="headerphai">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar  -->
+        <div class="navbar" style="padding-bottom:0; margin-bottom:0">
+            <div class="exam-container" id="flex-grow" style="opacity: 1;">
+                <div class="exam-element flex-grow-ele1" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Giới Thiệu  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+
+                        <div class="noidung_dropdown">
+                            <a href="/Home/ThongTinChung">Thông tin chung</a>
+                            <a href="/Home/TrietLyGiaoDuc">Triết lý giáo dục</a>
+                            <a href="#">Ban giám hiệu</a>
+                            <a href="#">Văn phòng hiệu trưởng</a>
+                            <a href="/Profiles/DanhSachGiaoVien">Danh sách cán bộ</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-element flex-grow-ele2" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Khoa - Trung Tâm  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                        <div class="noidung_dropdown">
+                            <a href="#">Công nghệ thông tin</a>
+                            <a href="#">Kỹ thuật phần mềm</a>
+                            <a href="#">Hệ thống thông tin</a>
+                            <a href="#">An toàn thông tin</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-element flex-grow-ele3" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Đào Tạo  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                        <div class="noidung_dropdown">
+                            <a href="#">Đào tạo đại học</a>
+                            <a href="#">Đào tạo sau đại học</a>
+                            <a href="#">Mô tả chương trình</a>
+                            <a href="#">Định hướng nghề nghiệp</a>
+                            <a href="#">Giới thiệu chung</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-element flex-grow-ele4" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Nghiên Cứu  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                        <div class="noidung_dropdown">
+                            <a href="#">Cái đề tài dự án</a>
+                            <a href="#">Thông tin Senior</a>
+                            <a href="#">Công trình công bố</a>
+                            <a href="#">Các phòng thí nghiệm</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-element flex-grow-ele5" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Tuyển Sinh  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+
+                        <div class="noidung_dropdown">
+                            <a href="/Home/TuyenSinh">Nhóm ngành Công nghệ thông tin</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-element flex-grow-ele6" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Tin Tức - Sự Kiện<i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                        <div class="noidung_dropdown">
+                            <a href="/Home/TinTucSuKien">Tin Tức</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-element flex-grow-ele7" style="flex-grow: 1;">
+                    <div class="dropdown">
+                        <button class="nut_dropdown">Sinh Viên  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                        <div class="noidung_dropdown">
+                            <a href="#">Tài liệu sinh viên</a>
+                            <a href="#">Tổ tư vấn học tập</a>
+                            <a href="#">Biểu mẫu ĐATN</a>
+                            <a href="#">Luận văn tốt nghiệp</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="exam-element flex-grow-ele8" style="flex-grow: 1;">
+                    <button class="nut_dropdown">Liên Hệ  <i class="fa-solid fa-chevron-down fas fa-clock fa-xs"></i></button>
+                    <!-- <div class="dropdown">
+                    <button class="nut_dropdown">Liên Hệ</button>
+                    <div class="noidung_dropdown">
+                      <a href="#"></a>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <!-- footer -->
+            <div class="footer">
+                <div class="footer-container" id="flex-grow" style="opacity: 1;">
+                    <div class="footer-element flex-grow-ele1" style="flex-grow: 1">
+
+                        <ul class="ulfooter">
+                            <h2 class="gt">Thông tin chung</h2>
+                            <li class="lifooter">Giới thiệu</li>
+                            <li class="lifooter">Ban giám hiệu</li>
+                            <li class="lifooter">Danh sách cán bộ</li>
+                            <li class="lifooter">Tổ chức</li>
+                            <li class="lifooter">Hợp tác liên kết</li>
+                        </ul>
+
+                    </div>
+                    <div class="footer-element flex-grow-ele2" style="flex-grow: 1;">
+
+                        <ul class="ulfooter">
+                            <h2 class="gt">Chương trình đào tạo</h2>
+                            <li class="lifooter">Đào tạo</li>
+                            <li class="lifooter">Mô hình đào tạo</li>
+                            <li class="lifooter">Định hướng nghành nghề</li>
+                            <li class="lifooter">Đào tạo đại học</li>
+                        </ul>
+
+                    </div>
+                    <div class="footer-element flex-grow-ele3" style="flex-grow: 1;">
+
+                        <ul class="ulfooter">
+                            <h2 class="gt">Khoa - Trung tâm</h2>
+                            <li class="lifooter">Công nghệ thông tin</li>
+                            <li class="lifooter">Kỹ thuật phầm mềm</li>
+                            <li class="lifooter">Trí tuệ nhân tạo</li>
+                            <li class="lifooter">Hệ thống phần mềm</li>
+                        </ul>
+
+                    </div>
+                    <div class=" flex-grow-ele10" style="flex-grow: 1;">
+
+                        <ul class="ulfooter">
+                            <h3>2023 Đại Học Thủy Lợi <br>- Khoa Công Nghệ Thông Tin</h3>
+                            <h3 class="gt"></h3>
+
+
+                            <li class="lifooter">Nhà C1, Đại học Thủy Lợi, 175 Tây Sơn, Đống Đa, Hà Nội</li>
+                            <li class="lifooter">(+84) 024 356 2211</li>
+                            <li class="lifooter">vnpcntt@tlu.edu.vn</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/bc029367a7.js" crossorigin="anonymous"></script>
+    </div>
+    <link href="~/Assets/LayoutIndex/giaodien.css" rel="stylesheet" />
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

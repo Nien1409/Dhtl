@@ -1,0 +1,41 @@
+﻿@model List<Model.EF.Profiles>
+
+@{
+    ViewBag.Title = "DanhSachGiaoVien";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DanhSachGiaoVien</h2>
+<div>
+    <ul class="breadcrumb">
+        <li><a href="/Home/Index">Trang chủ</a></li>
+        <li style="color:black">Danh Sách Giảng Viên</li>
+    </ul>
+</div>
+<div  style="display:flex; margin-bottom:2%; text-align:right">
+    <form style="width: 24%; display: flex">
+        <input type="search"
+               class="form-control w-auto"
+               id="search"
+               name="search"
+               placeholder="Tìm tên giảng viên" />
+        <button type="submit" class="btn btn-success">Tìm</button>
+    </form>
+</div>
+<div style=" width: 96%; margin-left: 0%; display: flex; flex-wrap: wrap;">
+    @foreach (var item in Model)
+    {
+
+        <!-- card -->
+
+
+        <div style="width: 17%; margin: 0% 0% 3% 3%; border: 8px solid gray;">
+            <img src="@item.Image" alt="Avatar" style="width:100%">
+            <div class="container">
+                <h5><a style="color:black" href="/Profiles/DetailDanhSachGiaoVien/@item.ProfilesID">@item.name</a></h5>
+            </div>
+        </div>
+
+    }
+
+</div>

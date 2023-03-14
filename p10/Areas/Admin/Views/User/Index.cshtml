@@ -1,0 +1,90 @@
+﻿@model PagedList.IPagedList<Model.EF.Users>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý User";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Assets/Admin-User-Index/css/style.css">
+</head>
+
+<hr />
+<div>
+    <h4>Danh sách User</h4>
+</div>
+<hr />
+<div class="container-fluid">
+    <button class="btn btn-dark"><a  href="/Admin/User/Create">Thêm mới User</a></button>
+</div>
+
+<div class="col-lg-12">
+    <div class="container-fluid px-4">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead class="thead-dark">
+
+                                    <tr>
+                                        <th>#ID</th>
+                                        <th>Họ và Tên</th>
+                                        <th>Email</th>
+                                        <th>Số Điện Thoại</th>
+                                        <th></th>
+
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        <tr class="alert" id="row_@item.UsersID">
+                                            <td>@item.UsersID</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.Phone</td>
+                                            <td>
+                                                <a href="/Admin/User/Edit/@item.UsersID">Sửa</a>
+                                                |
+                                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.UsersID }, new AjaxOptions
+                                           {
+
+                                               Confirm = "Bạn có muốn xóa bản ghi này",
+                                               OnComplete = "$('#row_" + item.UsersID + "').remove()",
+                                               HttpMethod = "Delete"
+                                           })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <nav aria-label="...">
+                                <ul class="pagination pagination-sm">
+                                    <li class="page-item disabled">
+                                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+        </div>
+    
+<script src="~/Assets/Admin-User-Index/js/jquery.min.js"></script>
+<script src="~/Assets/Admin-User-Index/js/popper.js"></script>
+<script src="~/Assets/Admin-User-Index/js/bootstrap.min.js"></script>
+<script src="~/Assets/Admin-User-Index/js/main.js"></script>
