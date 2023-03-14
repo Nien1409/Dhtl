@@ -2492,7 +2492,6 @@
     <Content Include="Areas\Admin\Views\Post\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Profiles\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Profiles\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Profiles\Delete.cshtml" />
     <None Include="Scripts\jquery-3.6.3.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.3.js" />
     <Content Include="Scripts\jquery-3.6.3.min.js" />

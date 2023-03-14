@@ -13,7 +13,7 @@ using System.Web.UI;
 using System.Web.Services.Description;
 using System.Runtime.Remoting.Messaging;
 using PagedList;
-using static Model.Dao.IndexDao;
+using static Model.Dao.ProfilesDao;
 
 namespace p10.Areas.Admin.Controllers
 
@@ -44,20 +44,13 @@ namespace p10.Areas.Admin.Controllers
             Profiles profiles = db.Profiles.Where(x => x.ProfilesID == id).FirstOrDefault();
             return View(profiles);
         }
+
+        //delete
+        [HttpDelete]
         public ActionResult Delete(int id)
         {
-            P10DbContext db = new P10DbContext();
-            Profiles profiles = db.Profiles.Where(x => x.ProfilesID == id).FirstOrDefault();
-            return View(profiles);
-        }
-        [HttpPost]
-        public ActionResult Delete(int id, int a)
-        {
-            P10DbContext db = new P10DbContext();
-            Profiles profiles = db.Profiles.Where(x => x.ProfilesID == id).FirstOrDefault();
-            db.Profiles.Remove(profiles);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            new ProfilesDao().Delete(id);
+            return RedirectToAction("index", "Profiles");
         }
         [HttpGet]
         public ActionResult Create()
@@ -73,7 +66,7 @@ namespace p10.Areas.Admin.Controllers
             db.Profiles.Add(entity);
             db.SaveChanges();
 
-            return View();
+            return RedirectToAction("index", "Profiles");
         }
 
 

@@ -9,7 +9,7 @@ using System.IO;
 using Model.Dao;
 using System.Drawing.Printing;
 using System.Web.UI;
-using static Model.Dao.IndexDao;
+using static Model.Dao.PostDao;
 using System.Web.Services.Description;
 using System.Runtime.Remoting.Messaging;
 using p10.Common;
@@ -36,27 +36,13 @@ namespace p10.Areas.Admin.Controllers
             return View(posts);
         }
         [HttpDelete]
-        public ActionResult DeletePost(int id)
+        public ActionResult Delete(int id)
         {
-            new UserDao().DeletePost(id);
+            new PostDao().Delete(id);
+
             return RedirectToAction("Index");
         }
-        //public ActionResult Delete(int id)
-        //{
-        //    P10DbContext db = new P10DbContext();
-        //    Posts posts = db.Posts.Where(x => x.PostsID == id).FirstOrDefault();
-        //    return View(posts);
-        //}
 
-        //[HttpPost]
-        //public ActionResult Delete(int id)
-        //{
-        //    P10DbContext db = new P10DbContext();
-        //    Posts post = db.Posts.Where(x => x.PostsID == id).FirstOrDefault();
-        //    db.Posts.Remove(post);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
         [HttpGet]
         public ActionResult Create()
         {

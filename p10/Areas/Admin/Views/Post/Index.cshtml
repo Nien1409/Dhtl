@@ -4,6 +4,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Assets/Admin-User-Index/css/style.css">
+</head>
 
 <div>
     <h4>Danh sách Bài viết</h4>
@@ -25,7 +35,6 @@
                                     <tr>
                                         <td>#ID</td>
                                         <td>Tiêu đề</td>
-                                        <td>Date</td>
                                         <td>Trạng thái</td>
                                         <td></td>
 
@@ -38,12 +47,11 @@
                                         <tr>
                                             <td>@item.PostsID</td>
                                             <td>@item.Title</td>
-                                            <td>@item.Published</td>
                                             <td>@item.Status</td>
                                             <td>
                                                 <a href="/Admin/Post/Edit/@item.PostsID">Sửa</a>
                                                 |
-                                                @Ajax.ActionLink("Xóa", "DeletePost", new { @id = item.PostsID }, new AjaxOptions
+                                                @Ajax.ActionLink("Xóa", "Delete", new { @id = item.PostsID }, new AjaxOptions
                                           {
 
                                               Confirm = "Bạn có muốn xóa bản ghi này",
@@ -69,5 +77,14 @@
             </div>
         </section>
 
+
+
     </div>
+
+
 </div>
+
+<script src="~/Assets/Admin-User-Index/js/jquery.min.js"></script>
+<script src="~/Assets/Admin-User-Index/js/popper.js"></script>
+<script src="~/Assets/Admin-User-Index/js/bootstrap.min.js"></script>
+<script src="~/Assets/Admin-User-Index/js/main.js"></script>
