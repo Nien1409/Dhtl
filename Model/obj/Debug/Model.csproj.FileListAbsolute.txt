@@ -1,0 +1,16 @@
+D:\c#\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+D:\c#\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\c#\Model\bin\Debug\Model.dll.config
+D:\c#\Model\bin\Debug\Model.dll
+D:\c#\Model\bin\Debug\Model.pdb
+D:\c#\Model\bin\Debug\EntityFramework.dll
+D:\c#\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\c#\Model\bin\Debug\PagedList.dll
+D:\c#\Model\bin\Debug\PagedList.Mvc.dll
+D:\c#\Model\bin\Debug\EntityFramework.xml
+D:\c#\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\c#\Model\bin\Debug\PagedList.xml
+D:\c#\Model\bin\Debug\PagedList.Mvc.xml
+D:\c#\Model\obj\Debug\Model.csproj.CopyComplete
+D:\c#\Model\obj\Debug\Model.dll
+D:\c#\Model\obj\Debug\Model.pdb
